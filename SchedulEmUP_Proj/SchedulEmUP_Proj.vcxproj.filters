@@ -18,34 +18,37 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="App.cpp">
+    <ClCompile Include="patient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="queue.cpp">
+    <ClCompile Include="doctor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="list.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="App.h">
+    <ClInclude Include="patient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="patient_menu.h">
+    <ClInclude Include="doctor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="load_doctors.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main_menu.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="queue.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="patient_submenu.h">
-      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

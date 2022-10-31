@@ -1,53 +1,41 @@
 #pragma once
-#include <iostream>
+#include "list.h"
+#include "load_doctors.h"
+#include "queue.h"
 
-#include "patient_menu.h"
-
-using namespace std;
-
-enum main_menu_choice
+enum MainMenu
 {
-	MM_EXIT = 0,
-	MM_Patient,
-	MM_Doctor,
-	MM_Admin
+	EXIT = 0,
+	Add_Patient
 };
 
 inline void main_menu()
 {
+	queue all_patients;
+	list doctors;
+	load_doctors(doctors);
+
 	int choice;
 	do
 	{
 		cout << endl << endl << "MAIN MENU" << endl;
-		cout << "Select your user type " << endl;
-		cout << "1. Patient" << endl;
-		cout << "2. Doctor" << endl;
-		cout << "3. Admin" << endl;
-		cout << "0. Exit" << endl;
+		cout << "1. Add patient" << endl;
 
-		cout << "Enter your choice: ";
+
+		cout << "0) EXIT" << endl;
+
+		cout << "Choice: ";
 		cin >> choice;
-
-		cout << endl;
 
 		switch (choice)
 		{
-		case MM_Patient:
-			patient_menu();
+		case Add_Patient:
+			add_patient(doctors); // TODO
 			break;
 
-		case MM_Doctor:
-			cout << "DOCTOR................" << endl;
+		case EXIT:
+			cout << "EXITING PROGRAM" << endl;
 			break;
-
-		case MM_Admin:
-			cout << "ADMIN................" << endl;
-			break;
-
-		case MM_EXIT:
-			cout << "Exiting..." << endl;
-			break;
-
 		default:
 			cout << "Invalid choice" << endl;
 			break;
