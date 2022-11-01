@@ -1,6 +1,4 @@
 #pragma once
-#include <iostream>
-using namespace std;
 #include "patient.h"
 
 struct node

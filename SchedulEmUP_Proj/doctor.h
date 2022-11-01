@@ -6,7 +6,7 @@ class doctor
 {
 public:
 	doctor();
-	doctor(string, int, int, string); // TODO CHECK DEFAULT QUEUE AS 0
+	doctor(string, int, int, string);
 
 	string name{};
 	int age{};
@@ -14,5 +14,4 @@ public:
 	string specialty{};
 
 	void details() const;
-	// queue patients{};
 };

@@ -1,5 +1,7 @@
 #include "queue.h"
 
+#include <utility>
+
 using namespace std;
 
 queue::queue()
@@ -19,10 +21,10 @@ queue::~queue()
 	}
 }
 
-void queue::enqueue(patient new)
+void queue::enqueue(patient new_)
 {
-	node* new_node = new node;
-	new_node->data = new;
+	const auto new_node = new node;
+	new_node->data = move(new_);
 	new_node->next = nullptr;
 
 	if (head_ == nullptr)
@@ -37,15 +39,34 @@ void queue::enqueue(patient new)
 	}
 }
 
+patient queue::dequeue()
+{
+	if (head_ == nullptr) return patient{};
+
+	const auto old_head = head_;
+	const auto old_data = old_head->data;
+	head_ = old_head->next;
+	delete old_head;
+
+	return old_data;
+}
+
 
 void queue::show() const
 {
-	const node* current = head_;
-	while (current != nullptr)
+	if (is_empty())
 	{
-		cout << current->data << endl;
+		cout << "Queue is empty" << endl;
+		return;
+	}
+
+	const node* current = head_;
+	while (current->next != nullptr)
+	{
+		current->data.details();
 		current = current->next;
 	}
+	current->data.details();
 }
 
 bool queue::is_empty() const

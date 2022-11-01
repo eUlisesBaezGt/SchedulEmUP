@@ -50,5 +50,11 @@
     <ClInclude Include="queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="add_patient.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="doctor_queues.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
