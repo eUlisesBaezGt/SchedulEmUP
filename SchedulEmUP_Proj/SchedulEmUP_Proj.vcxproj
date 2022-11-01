@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_patient.h" />
+    <ClInclude Include="classify_by_urgency.h" />
     <ClInclude Include="doctor.h" />
     <ClInclude Include="doctor_queues.h" />
     <ClInclude Include="list.h" />

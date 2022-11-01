@@ -1,5 +1,6 @@
 #pragma once
 #include "add_patient.h"
+#include "classify_by_urgency.h"
 #include "list.h"
 #include "load_doctors.h"
 #include "doctor_queues.h"
@@ -11,12 +12,13 @@ enum main_menu
 	EXIT = 0,
 	Add_Patient,
 	See_Doctors,
-	See_Doctor_Queues
+	See_Doctor_Queues,
+	Classify_By_Urgency
 };
 
 inline void main_menu()
 {
-	queue all_patients, queue_john, queue_mary, queue_peter;
+	queue all_patients, queue_john, queue_mary, queue_peter, queue_URGENT, queue_NORMAL;
 	list doctors;
 	load_doctors(doctors);
 	patient new_patient;
@@ -27,6 +29,7 @@ inline void main_menu()
 		cout << "1. Add patient" << endl;
 		cout << "2. See doctors" << endl;
 		cout << "3. See doctor's queue" << endl;
+		cout << "4. Classify by urgency" << endl;
 		cout << "0) EXIT" << endl;
 
 		cout << "Choice: ";
@@ -55,6 +58,9 @@ inline void main_menu()
 			doctor_queues(queue_john, queue_mary, queue_peter);
 			break;
 
+		case Classify_By_Urgency:
+			classify_by_urgency(all_patients, queue_URGENT, queue_NORMAL);
+			break;
 
 		case EXIT:
 			cout << "EXITING PROGRAM" << endl;
