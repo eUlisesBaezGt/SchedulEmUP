@@ -3,12 +3,15 @@
 
 inline patient add_patient()
 {
+	int id;
 	string name;
 	int age;
 	int doctor_2_visit;
 	string cause;
 	int urgency;
 
+	cout << "ID: ";
+	cin >> id;
 	cout << "Name: ";
 	cin >> name;
 	cout << "Age: ";
@@ -24,6 +27,6 @@ inline patient add_patient()
 	cout << "Urgency (1 for VERY URGENT - 2 for normal): ";
 	cin >> urgency;
 
-	patient new_patient(name, age, doctor_2_visit, cause, urgency);
+	patient new_patient(id, name, age, doctor_2_visit, cause, urgency);
 	return new_patient;
 }

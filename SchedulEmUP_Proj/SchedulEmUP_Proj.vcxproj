@@ -21,16 +21,20 @@
   <ItemGroup>
     <ClCompile Include="doctor.cpp" />
     <ClCompile Include="list.cpp" />
+    <ClCompile Include="list_4_patients.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="patient.cpp" />
     <ClCompile Include="queue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_patient.h" />
+    <ClInclude Include="app.h" />
     <ClInclude Include="classify_by_urgency.h" />
+    <ClInclude Include="discharge_patient.h" />
     <ClInclude Include="doctor.h" />
     <ClInclude Include="doctor_queues.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="list_4_patients.h" />
     <ClInclude Include="load_doctors.h" />
     <ClInclude Include="main_menu.h" />
     <ClInclude Include="patient.h" />

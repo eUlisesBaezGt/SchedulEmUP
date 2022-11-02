@@ -17,6 +17,7 @@ public:
 
 	void show() const;
 	bool is_empty() const;
+	void search_patient(queue, int);
 
 private:
 	node* head_;

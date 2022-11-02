@@ -5,6 +5,8 @@
 #include "load_doctors.h"
 #include "doctor_queues.h"
 #include "queue.h"
+#include "discharge_patient.h"
+#include "list_4_patients.h"
 
 
 enum main_menu
@@ -13,7 +15,8 @@ enum main_menu
 	Add_Patient,
 	See_Doctors,
 	See_Doctor_Queues,
-	Classify_By_Urgency
+	Classify_By_Urgency,
+	Discharge_Patient
 };
 
 inline void main_menu()
@@ -25,11 +28,13 @@ inline void main_menu()
 	int choice;
 	do
 	{
+		list_4_patients complete_patients;
 		cout << endl << endl << "MAIN MENU" << endl;
 		cout << "1. Add patient" << endl;
 		cout << "2. See doctors" << endl;
 		cout << "3. See doctor's queue" << endl;
-		cout << "4. Classify by urgency" << endl;
+		cout << "4. Classify by urgency (Extract from all_patients & Move to URG queues)" << endl;
+		cout << "5. Discharge Patient (Merge main queues in a single list and Delete desired ID)" << endl;
 		cout << "0) EXIT" << endl;
 
 		cout << "Choice: ";
@@ -60,6 +65,10 @@ inline void main_menu()
 
 		case Classify_By_Urgency:
 			classify_by_urgency(all_patients, queue_URGENT, queue_NORMAL);
+			break;
+
+		case Discharge_Patient:
+			discharge_patient(complete_patients, all_patients, queue_URGENT, queue_NORMAL);
 			break;
 
 		case EXIT:
