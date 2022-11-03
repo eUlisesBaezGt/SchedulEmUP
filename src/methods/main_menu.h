@@ -3,7 +3,6 @@
 #include "list.h"
 #include "load_doctors.h"
 #include "doctor_queues.h"
-#include "queue.h"
 #include "list_4_patients.h"
 #include "search_delete_queues.h"
 
@@ -14,14 +13,14 @@ enum main_menu
 	Add_Patient,
 	see_doctors,
 	see_doctor_queues,
-	Discharge_patient,
+	discharge_patient,
 	see_all_patients,
 	see_urgent,
 };
 
 inline void main_menu()
 {
-	queue queue_john, queue_mary, queue_peter, not_urgent, urgent;
+	queue queue_john, queue_mary, queue_peter;
 	list doctors;
 	list_4_patients complete_patients;
 	load_doctors(doctors);
@@ -64,7 +63,7 @@ inline void main_menu()
 			doctor_queues(queue_john, queue_mary, queue_peter);
 			break;
 
-		case Discharge_patient:
+		case discharge_patient:
 			int id;
 			cout << "Enter ID: ";
 			cin >> id;

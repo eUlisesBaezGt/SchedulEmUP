@@ -4,7 +4,7 @@
 
 using namespace std;
 
-inline void search_delete_queues(queue& queue_john, queue& queue_mary, queue& queue_peter, int id)
+inline void search_delete_queues(queue& queue_john, queue& queue_mary, queue& queue_peter, const int id)
 {
 	queue_john.delete_id(id);
 	queue_mary.delete_id(id);

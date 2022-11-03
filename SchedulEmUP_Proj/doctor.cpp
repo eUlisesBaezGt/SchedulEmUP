@@ -5,7 +5,7 @@ using namespace std;
 
 doctor::doctor() = default;
 
-doctor::doctor(string name, const int age, int dr_id, string specialty)
+doctor::doctor(string name, const int age, const int dr_id, string specialty)
 {
 	this->name = move(name);
 	this->age = age;

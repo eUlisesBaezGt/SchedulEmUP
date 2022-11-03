@@ -7,9 +7,9 @@ using namespace std;
 enum doctor_queues
 {
 	back = 0,
-	See_John,
-	See_Mary,
-	See_Peter
+	see_john,
+	see_mary,
+	see_peter
 };
 
 inline void doctor_queues(const queue& queue_john, const queue& queue_mary, const queue& queue_peter)
@@ -26,15 +26,15 @@ inline void doctor_queues(const queue& queue_john, const queue& queue_mary, cons
 
 	switch (choice)
 	{
-	case See_John:
+	case see_john:
 		queue_john.show();
 		break;
 
-	case See_Mary:
+	case see_mary:
 		queue_mary.show();
 		break;
 
-	case See_Peter:
+	case see_peter:
 		queue_peter.show();
 		break;
 
