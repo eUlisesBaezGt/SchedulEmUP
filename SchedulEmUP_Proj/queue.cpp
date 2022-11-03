@@ -73,3 +73,42 @@ bool queue::is_empty() const
 {
 	return head_ == nullptr;
 }
+
+int queue::size() const
+{
+	int size = 0;
+	const node* current = head_;
+	while (current != nullptr)
+	{
+		size++;
+		current = current->next;
+	}
+	return size;
+}
+
+void queue::delete_id(const int id)
+{
+	int count = 0;
+	while (count < size())
+	{
+		patient temp = dequeue();
+		count++;
+		if (temp.get_id() != id)
+		{
+			enqueue(temp);
+		}
+	}
+}
+
+void queue::clear()
+{
+	const node* current = head_;
+	while (current != nullptr)
+	{
+		const node* next = current->next;
+		delete current;
+		current = next;
+	}
+	head_ = nullptr;
+	tail_ = nullptr;
+}

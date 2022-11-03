@@ -1,40 +1,41 @@
 #pragma once
 #include "add_patient.h"
-#include "classify_by_urgency.h"
 #include "list.h"
 #include "load_doctors.h"
 #include "doctor_queues.h"
 #include "queue.h"
-#include "discharge_patient.h"
 #include "list_4_patients.h"
+#include "search_delete_queues.h"
 
 
 enum main_menu
 {
 	EXIT = 0,
 	Add_Patient,
-	See_Doctors,
-	See_Doctor_Queues,
-	Classify_By_Urgency,
-	Discharge_Patient
+	see_doctors,
+	see_doctor_queues,
+	Discharge_patient,
+	see_all_patients,
+	see_urgent,
 };
 
 inline void main_menu()
 {
-	queue all_patients, queue_john, queue_mary, queue_peter, queue_URGENT, queue_NORMAL;
+	queue queue_john, queue_mary, queue_peter, not_urgent, urgent;
 	list doctors;
+	list_4_patients complete_patients;
 	load_doctors(doctors);
 	patient new_patient;
 	int choice;
 	do
 	{
-		list_4_patients complete_patients;
 		cout << endl << endl << "MAIN MENU" << endl;
 		cout << "1. Add patient" << endl;
 		cout << "2. See doctors" << endl;
 		cout << "3. See doctor's queue" << endl;
-		cout << "4. Classify by urgency (Extract from all_patients & Move to URG queues)" << endl;
-		cout << "5. Discharge Patient (Merge main queues in a single list and Delete desired ID)" << endl;
+		cout << "4. Discharge Patient by ID" << endl;
+		cout << "5. See All Patients" << endl;
+		cout << "6. See Urgent Patients" << endl;
 		cout << "0) EXIT" << endl;
 
 		cout << "Choice: ";
@@ -52,23 +53,31 @@ inline void main_menu()
 				cout << "Invalid doctor ID" << endl;
 				new_patient = add_patient();
 			}
-			all_patients.enqueue(new_patient);
+			complete_patients.insert(new_patient);
 			break;
 
-		case See_Doctors:
+		case see_doctors:
 			doctors.show_full();
 			break;
 
-		case See_Doctor_Queues:
+		case see_doctor_queues:
 			doctor_queues(queue_john, queue_mary, queue_peter);
 			break;
 
-		case Classify_By_Urgency:
-			classify_by_urgency(all_patients, queue_URGENT, queue_NORMAL);
+		case Discharge_patient:
+			int id;
+			cout << "Enter ID: ";
+			cin >> id;
+			complete_patients.delete_id(id);
+			search_delete_queues(queue_john, queue_mary, queue_peter, id);
 			break;
 
-		case Discharge_Patient:
-			discharge_patient(complete_patients, all_patients, queue_URGENT, queue_NORMAL);
+		case see_all_patients:
+			complete_patients.show_full();
+			break;
+
+		case see_urgent:
+			complete_patients.show_urgent();
 			break;
 
 		case EXIT:

@@ -1,5 +1,6 @@
 #pragma once
 #include "doctor.h"
+#include "patient.h"
 
 class list
 {

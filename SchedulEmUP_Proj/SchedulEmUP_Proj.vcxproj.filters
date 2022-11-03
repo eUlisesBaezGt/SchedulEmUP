@@ -59,17 +59,11 @@
     <ClInclude Include="doctor_queues.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="app.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="classify_by_urgency.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="discharge_patient.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="list_4_patients.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="search_delete_queues.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

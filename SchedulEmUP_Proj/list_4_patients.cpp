@@ -31,20 +31,19 @@ void list_4_patients::insert(const patient& doc)
 	}
 }
 
-void list_4_patients::show_full()
+void list_4_patients::show_full() const
 {
 	if (is_empty())
 	{
 		cout << "List is empty" << endl;
 		return;
 	}
-	temp_ = head_;
-	while (temp_->next != nullptr)
+	const node* temp = head_;
+	while (temp != nullptr)
 	{
-		temp_->data.details();
-		temp_ = temp_->next;
+		temp->data.details();
+		temp = temp->next;
 	}
-	temp_->data.details();
 }
 
 bool list_4_patients::is_empty() const
@@ -52,57 +51,77 @@ bool list_4_patients::is_empty() const
 	return head_ == nullptr;
 }
 
-void list_4_patients::delete_id(int id)
+
+void list_4_patients::delete_id(const int id)
 {
 	if (is_empty())
 	{
 		cout << "List is empty" << endl;
 		return;
 	}
-	temp_ = head_;
-	node* prev = nullptr;
-	while (temp_->next != nullptr)
+	node* current = head_;
+	node* previous = nullptr;
+	while (current != nullptr)
 	{
-		if (temp_->data.get_id() == id)
+		if (current->data.id == id)
 		{
-			if (temp_ == head_)
+			if (current == head_)
 			{
 				head_ = head_->next;
-				delete temp_;
+				delete current;
 				return;
 			}
-			if (temp_ == tail_)
+			if (current == tail_)
 			{
-				tail_ = prev;
+				tail_ = previous;
 				tail_->next = nullptr;
-				delete temp_;
+				delete current;
 				return;
 			}
-			prev->next = temp_->next;
-			delete temp_;
+			previous->next = current->next;
+			delete current;
 			return;
 		}
-		prev = temp_;
-		temp_ = temp_->next;
+		previous = current;
+		current = current->next;
 	}
-	if (temp_->data.get_id() == id)
+
+	cout << "ID not found" << endl;
+}
+
+patient list_4_patients::get_head() const
+{
+	return head_->data;
+}
+
+void list_4_patients::pop_front()
+{
+	if (is_empty())
 	{
-		if (temp_ == head_)
-		{
-			head_ = head_->next;
-			delete temp_;
-			return;
-		}
-		if (temp_ == tail_)
-		{
-			tail_ = prev;
-			tail_->next = nullptr;
-			delete temp_;
-			return;
-		}
-		prev->next = temp_->next;
-		delete temp_;
+		cout << "List is empty" << endl;
 		return;
 	}
-	cout << "ID not found" << endl;
+	const node* temp = head_;
+	if (head_ == tail_)
+		head_ = tail_ = nullptr;
+	else
+		head_ = head_->next;
+	delete temp;
+}
+
+void list_4_patients::show_urgent() const
+{
+	if (is_empty())
+	{
+		cout << "List is empty" << endl;
+		return;
+	}
+	cout << "Urgent Patients" << endl;
+	const node* temp = head_;
+	while (temp != nullptr)
+	{
+		if (temp->data.urgency == 1)
+			temp->data.details();
+		temp = temp->next;
+	}
 }

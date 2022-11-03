@@ -8,9 +8,12 @@ public:
 	~list_4_patients();
 
 	void insert(const patient&);
-	void show_full();
+	void show_full() const;
 	bool is_empty() const;
 	void delete_id(int);
+	patient get_head() const;
+	void pop_front();
+	void show_urgent() const;
 
 private:
 	struct node
