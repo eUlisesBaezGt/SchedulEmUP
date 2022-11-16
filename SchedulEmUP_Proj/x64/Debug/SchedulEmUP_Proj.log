@@ -1,2 +1,7 @@
-﻿  list_4_patients.cpp
+﻿  doctor.cpp
+  list.cpp
+  list_4_patients.cpp
+  main.cpp
+  queue.cpp
+  Generating Code...
   SchedulEmUP_Proj.vcxproj -> C:\Users\eubgo\Desktop\SchedulEmUP\SchedulEmUP_Proj\x64\Debug\SchedulEmUP_Proj.exe
